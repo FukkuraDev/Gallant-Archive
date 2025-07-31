@@ -1,4 +1,5 @@
 import Link from "next/link";
+import StatusChecker from "./StatusChecker";
 
 interface SideCardProps {
     data: {
@@ -58,9 +59,9 @@ const SideCard = ({ data }: SideCardProps) => {
 
                     {data.links && data.links.length > 0 ? (
                         data.links.map((link: any, index: number) => (
-                            <div key={index} >
+                            <div key={index} className="flex-row flex justify-center" >
                                 <Link href={link.url || ' '} target="_blank" className="text-violet-400">{link.label}</Link>
-
+                                <StatusChecker url={link.url} />
                             </div>
                         )) //This is suboptimal, please help fix it
                     ) : (
